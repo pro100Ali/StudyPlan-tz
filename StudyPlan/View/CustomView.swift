@@ -61,8 +61,8 @@ class CustomView: UIView {
             }
             
             hours.snp.makeConstraints { make in
-                make.top.equalToSuperview()
                 make.leading.equalToSuperview().inset(19)
+                make.top.equalToSuperview()
                 make.center.equalToSuperview()
             }
             

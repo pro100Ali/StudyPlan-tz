@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     private var previousViews: [UIView] = []
     private var viewOpt: UIView?
     
+    lazy private var scrollView: UIScrollView = {
+       let scrollView = UIScrollView()
+       return scrollView
+    }()
     
     lazy private var yearLabel: UILabel = {
         let label = UILabel()
@@ -80,8 +84,9 @@ class ViewController: UIViewController {
         viewModel.fetchProducts()
         viewModel.fetchModel()
         
+        [buttonFirst, yearLabel, buttonSecond, viewTable, audioInHours, buttonDownload, viewHell].forEach{ scrollView.addSubview($0)}
         
-        [buttonFirst, yearLabel, buttonSecond, viewTable, audioInHours, buttonDownload, viewHell].forEach{ view.addSubview($0)}
+        view.addSubview(scrollView)
         
         drawTable(viewModel.semester[0])
         setupConstraints()
@@ -146,7 +151,7 @@ class ViewController: UIViewController {
             
             label.snp.makeConstraints { make in
                 make.height.equalTo(50)
-                make.width.equalTo(250)
+                
                 if let previousView = previousDiscipline {
                     make.width.equalTo(150)
                     make.top.equalTo(previousView.snp.bottom)
@@ -179,27 +184,32 @@ class ViewController: UIViewController {
     }
     
     func setupConstraints() {
+        
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         yearLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(150)
             make.width.equalToSuperview()
+            make.top.equalToSuperview().inset(150)
             make.centerX.equalToSuperview()
         }
         buttonFirst.snp.makeConstraints { make in
-            make.top.equalTo(buttonSecond.snp.top)
             make.width.equalToSuperview().multipliedBy(0.5)
+            make.top.equalTo(buttonSecond.snp.top)
             make.leading.equalToSuperview()
         }
         
         buttonSecond.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(270)
             make.width.equalToSuperview().multipliedBy(0.5)
+            make.top.equalToSuperview().inset(270)
             make.left.equalTo(buttonFirst.snp.right)
 
         }
         audioInHours.snp.makeConstraints { make in
-            make.top.equalTo(buttonFirst.snp.bottom)
             make.width.equalToSuperview()
             make.height.equalTo(40)
+            make.top.equalTo(buttonFirst.snp.bottom)
             make.trailing.equalToSuperview().inset(10)
         }
         buttonDownload.snp.makeConstraints { make in
@@ -210,9 +220,9 @@ class ViewController: UIViewController {
         viewHell.backgroundColor = Constants.shared.colorGray
         
         viewHell.snp.makeConstraints { make in
-            make.top.equalTo(audioInHours.snp.bottom)
             make.height.equalTo(40)
             make.width.equalToSuperview()
+            make.top.equalTo(audioInHours.snp.bottom)
         }
         viewTable.snp.makeConstraints { make in
             make.top.equalTo(viewHell.snp.bottom)

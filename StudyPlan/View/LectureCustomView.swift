@@ -59,9 +59,9 @@ class LectureCustomView: UIView {
     
     func setupConstraints() {
         nameDiscipline.snp.makeConstraints { make in
+            make.width.equalTo(150)
             make.leading.equalToSuperview().inset(16)
             make.centerY.equalToSuperview()
-            make.width.equalTo(150)
         }
         lecture.snp.makeConstraints { make in
             make.left.equalTo(nameDiscipline.snp.right).offset(20)
@@ -76,7 +76,6 @@ class LectureCustomView: UIView {
         labaratory.snp.makeConstraints { make in
             make.left.equalTo(seminar.snp.right).offset(20)
             make.centerY.equalToSuperview()
-
 
         }
     }
