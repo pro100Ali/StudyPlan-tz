@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  StudyPlan
+
+  Created by Али  on 24.06.2023.
+  
+*/
+
+TITLE = "Пән атауы";
+AUDIO = "Аудиториялық сабақтар(сағат)";
+LECTURE = "Дәріс";
+SEMINAR = "Семинар";
+LAB = "Зерт.";
+SEMESTER = "Семестр";
+MAINTITLE = "2018-2019 оқу жылына СТУДЕНТТЕРДІҢ ЖЕКЕ ОҚУ ЖОСПАРЫ No2018-24907";
+DOCUMENTURL = "Анықтама жүктелді";

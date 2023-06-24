@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  StudyPlan
+
+  Created by Али  on 24.06.2023.
+  
+*/
+
+TITLE = "Course title";
+AUDIO = "Classroom classes(in hours)";
+LECTURE = "Lecture";
+SEMINAR = "Seminar";
+LAB = "Lab.";
+SEMESTER = "Semester";
+MAINTITLE = "STUDENT INDIVIDUAL CURRICULUM No. 2018-24907 for the 2018-2019 academic year";
+DOCUMENTURL = "Document was downloaded";
